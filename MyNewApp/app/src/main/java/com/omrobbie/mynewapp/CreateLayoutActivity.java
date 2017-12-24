@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
@@ -21,6 +22,7 @@ public class CreateLayoutActivity extends Activity {
 
         RelativeLayout relativeLayout = new RelativeLayout(this);
         Button button = new Button(this);
+        EditText username = new EditText(this);
 
         RelativeLayout.LayoutParams buttonDetails = new RelativeLayout.LayoutParams(
                 RelativeLayout.LayoutParams.WRAP_CONTENT,
@@ -34,6 +36,19 @@ public class CreateLayoutActivity extends Activity {
         relativeLayout.addView(button, buttonDetails);
         relativeLayout.setBackgroundColor(Color.BLUE);
         button.setBackgroundColor(Color.GREEN);
+
+        button.setId(1);
+        username.setId(2);
+
+        RelativeLayout.LayoutParams usernameDetails = new RelativeLayout.LayoutParams(
+                RelativeLayout.LayoutParams.WRAP_CONTENT,
+                RelativeLayout.LayoutParams.WRAP_CONTENT
+        );
+
+        usernameDetails.addRule(RelativeLayout.ABOVE, button.getId());
+        usernameDetails.addRule(RelativeLayout.CENTER_HORIZONTAL);
+        usernameDetails.setMargins(0, 0, 0, 50);
+        relativeLayout.addView(username, usernameDetails);
 
         setContentView(relativeLayout);
 
