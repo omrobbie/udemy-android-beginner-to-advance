@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">MyNewApp</string>
+    <string name="text_title">Login Form</string>
+    <string name="text_email">email</string>
+    <string name="text_password">password</string>
+    <string name="button_name">Login</string>
 </resources>
