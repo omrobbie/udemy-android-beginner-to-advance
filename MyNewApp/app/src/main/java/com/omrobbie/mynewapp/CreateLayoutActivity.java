@@ -1,9 +1,11 @@
 package com.omrobbie.mynewapp;
 
 import android.app.Activity;
+import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.TypedValue;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -49,6 +51,10 @@ public class CreateLayoutActivity extends Activity {
         usernameDetails.addRule(RelativeLayout.CENTER_HORIZONTAL);
         usernameDetails.setMargins(0, 0, 0, 50);
         relativeLayout.addView(username, usernameDetails);
+
+        Resources resources = getResources();
+        int px = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 200, resources.getDisplayMetrics());
+        username.setWidth(px);
 
         setContentView(relativeLayout);
 
