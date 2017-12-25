@@ -21,9 +21,19 @@
         android:id="@+id/button_first"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="28dp"
+        android:layout_centerVertical="true"
         android:onClick="onClick"
         android:text="Next" />
+
+    <EditText
+        android:id="@+id/edit_first"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="19dp"
+        android:ems="10"
+        android:inputType="textPersonName" />
+
 </RelativeLayout>
