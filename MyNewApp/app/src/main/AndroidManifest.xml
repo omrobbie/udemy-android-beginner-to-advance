@@ -11,7 +11,8 @@
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity" />
         <activity android:name=".CreateLayoutActivity" />
-        <activity android:name=".GridActivity">
+        <activity android:name=".GridActivity" />
+        <activity android:name=".GestureActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
