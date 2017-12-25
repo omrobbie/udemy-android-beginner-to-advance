@@ -6,7 +6,11 @@ import android.view.View;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import java.util.List;
+
 public class MainActivity extends Activity {
+
+    private WorkoutExpert expert = new WorkoutExpert();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +23,16 @@ public class MainActivity extends Activity {
         Spinner workoutType = (Spinner) findViewById(R.id.workoutType);
 
         String workout = String.valueOf(workoutType.getSelectedItem());
-        workouts.setText(workout);
+        // workouts.setText(workout);
+
+        List<String> workoutList = expert.getWorkouts(workout);
+        StringBuilder workoutFormatted = new StringBuilder();
+
+        for (String work : workoutList) {
+            workoutFormatted
+                    .append(work)
+                    .append("\n");
+        }
+        workouts.setText(workoutFormatted);
     }
 }
