@@ -15,6 +15,9 @@ public class MainActivity extends AppCompatActivity {
 
         Intent intent = new Intent(this, MyIntentService.class);
         startService(intent);
+
+        Intent intent1 = new Intent(this, MyService.class);
+        startService(intent1);
     }
 
     public void onClick(View view) {
