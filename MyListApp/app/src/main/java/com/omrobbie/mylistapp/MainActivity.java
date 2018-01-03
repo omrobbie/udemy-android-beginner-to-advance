@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -17,7 +16,8 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         String[] fruits = {"Apple", "Orange", "Peach", "Mango"};
-        ListAdapter adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, fruits);
+        //ListAdapter adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, fruits);
+        ListAdapter adapter = new CustomAdapter(this, fruits);
 
         ListView myListView = (ListView) findViewById(R.id.myListView);
         myListView.setAdapter(adapter);
