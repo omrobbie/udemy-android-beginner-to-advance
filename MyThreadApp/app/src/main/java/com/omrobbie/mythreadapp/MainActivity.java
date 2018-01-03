@@ -1,6 +1,8 @@
 package com.omrobbie.mythreadapp;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -10,6 +12,13 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView myText;
     private Button myButton;
+
+    Handler handler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            myText.setText("Button Clicked!");
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,18 +34,26 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void clickMyButton(View view) {
-        long futureTime = System.currentTimeMillis() + 10000;
 
-        while (System.currentTimeMillis() < futureTime) {
-            synchronized (this) {
-                try {
-                    wait(futureTime - System.currentTimeMillis());
-                } catch (Exception e) {
-                    e.printStackTrace();
+        Runnable runnable = new Runnable() {
+            @Override
+            public void run() {
+                long futureTime = System.currentTimeMillis() + 10000;
+
+                while (System.currentTimeMillis() < futureTime) {
+                    synchronized (this) {
+                        try {
+                            wait(futureTime - System.currentTimeMillis());
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
                 }
-            }
-        }
 
-        myText.setText("Button Clicked!");
+                handler.sendEmptyMessage(0);
+            }
+        };
+
+        new Thread(runnable).start();
     }
 }
