@@ -2,10 +2,9 @@ package com.omrobbie.imageeffects;
 
 import android.graphics.Bitmap;
 import android.graphics.Color;
-import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.graphics.drawable.LayerDrawable;
 import android.os.Bundle;
-import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
 
@@ -26,11 +25,19 @@ public class MainActivity extends AppCompatActivity {
 
     private void setupEnv() {
         myImageView = (ImageView) findViewById(R.id.myImageView);
-        myDrawable = ResourcesCompat.getDrawable(getResources(), R.drawable.firebase, null);
+
+        /*myDrawable = ResourcesCompat.getDrawable(getResources(), R.drawable.firebase, null);
         myBitmap = ((BitmapDrawable) myDrawable).getBitmap();
 
         Bitmap newPhoto = invertImage(myBitmap);
-        myImageView.setImageBitmap(newPhoto);
+        myImageView.setImageBitmap(newPhoto);*/
+
+        Drawable[] layers = new Drawable[2];
+        layers[0] = getResources().getDrawable(R.drawable.firebase);
+        layers[1] = getResources().getDrawable(R.drawable.pattern);
+
+        LayerDrawable layerDrawable = new LayerDrawable(layers);
+        myImageView.setImageDrawable(layerDrawable);
     }
 
     private Bitmap invertImage(Bitmap original) {
