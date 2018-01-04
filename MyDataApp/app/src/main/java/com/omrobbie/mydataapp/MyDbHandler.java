@@ -1,5 +1,6 @@
 package com.omrobbie.mydataapp;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -34,5 +35,21 @@ public class MyDbHandler extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
         sqLiteDatabase.execSQL("DROP TABLE IF EXISTS " + TABLE_PRODUCT);
         onCreate(sqLiteDatabase);
+    }
+
+    public void addProduct(Products products) {
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_PRODUCT_NAME, products.get_productName());
+
+        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+        sqLiteDatabase.insert(TABLE_PRODUCT, null, values);
+        sqLiteDatabase.close();
+    }
+
+    public void deleteProduct(String product_name) {
+        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+        sqLiteDatabase.execSQL("DELETE FROM " + TABLE_PRODUCT +
+                " WHERE " + COLUMN_PRODUCT_NAME + " =\"" + product_name + "\";"
+        );
     }
 }
