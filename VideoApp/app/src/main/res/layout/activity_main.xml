@@ -7,4 +7,8 @@
     android:orientation="vertical"
     tools:context="com.omrobbie.videoapp.MainActivity">
 
+    <VideoView
+        android:id="@+id/myVideoView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 </LinearLayout>
