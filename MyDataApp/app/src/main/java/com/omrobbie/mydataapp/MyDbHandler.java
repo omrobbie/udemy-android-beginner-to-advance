@@ -19,8 +19,8 @@ public class MyDbHandler extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
     private static final String DATABASE_NAME = "products.db";
 
-    public MyDbHandler(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
-        super(context, DATABASE_NAME, factory, DATABASE_VERSION);
+    public MyDbHandler(Context context) {
+        super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
     @Override
@@ -61,10 +61,11 @@ public class MyDbHandler extends SQLiteOpenHelper {
 
         String query = "SELECT * FROM " + TABLE_PRODUCT;
         Cursor cursor = sqLiteDatabase.rawQuery(query, null);
+        cursor.moveToFirst();
 
         while (!cursor.isAfterLast()) {
             if (cursor.getString(cursor.getColumnIndex(COLUMN_PRODUCT_NAME)) != null) {
-                dbString = cursor.getString(cursor.getColumnIndex(COLUMN_PRODUCT_NAME));
+                dbString += cursor.getString(cursor.getColumnIndex(COLUMN_PRODUCT_NAME));
                 dbString += "\n";
             }
             cursor.moveToNext();
