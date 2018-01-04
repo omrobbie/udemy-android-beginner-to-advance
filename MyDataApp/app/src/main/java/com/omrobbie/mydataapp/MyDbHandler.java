@@ -2,6 +2,7 @@ package com.omrobbie.mydataapp;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
@@ -51,5 +52,26 @@ public class MyDbHandler extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL("DELETE FROM " + TABLE_PRODUCT +
                 " WHERE " + COLUMN_PRODUCT_NAME + " =\"" + product_name + "\";"
         );
+    }
+
+    public String databaseToString() {
+        String dbString = "";
+
+        SQLiteDatabase sqLiteDatabase = getWritableDatabase();
+
+        String query = "SELECT * FROM " + TABLE_PRODUCT;
+        Cursor cursor = sqLiteDatabase.rawQuery(query, null);
+
+        while (!cursor.isAfterLast()) {
+            if (cursor.getString(cursor.getColumnIndex(COLUMN_PRODUCT_NAME)) != null) {
+                dbString = cursor.getString(cursor.getColumnIndex(COLUMN_PRODUCT_NAME));
+                dbString += "\n";
+            }
+            cursor.moveToNext();
+        }
+        cursor.close();
+        sqLiteDatabase.close();
+
+        return dbString;
     }
 }
