@@ -1,7 +1,7 @@
-import android.support.v7.app.AppCompatActivity;git package com.omrobbie.mystyles;
+package com.omrobbie.mystyles;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
