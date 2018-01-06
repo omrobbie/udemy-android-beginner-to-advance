@@ -7,6 +7,10 @@
         <item name="android:background">#006699</item>
     </style>
 
+    <style name="MyBlue.BigBlue">
+        <item name="android:textSize">32sp</item>
+    </style>
+
     <style name="MyGreen">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
