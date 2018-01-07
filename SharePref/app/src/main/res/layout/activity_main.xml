@@ -42,12 +42,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
+        android:onClick="saveInfo"
         android:text="Add" />
 
     <Button
         android:id="@+id/displayData"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="displayData"
         android:text="Display" />
 
     <TextView
@@ -56,7 +58,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:gravity="center"
-        android:text="TextView"
+        android:text="username | password"
         android:textSize="24sp"
         android:textStyle="bold" />
 
