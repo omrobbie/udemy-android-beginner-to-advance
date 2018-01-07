@@ -27,6 +27,10 @@ public class MyGdxGame extends ApplicationAdapter implements GestureDetector.Ges
     private Animation animation;
     private float timePassed = 0;*/
 
+    private OrthographicCamera camera;
+    private Texture texture;
+    private Sprite sprite;
+
     @Override
     public void create() {
         setupEnv();
@@ -34,18 +38,21 @@ public class MyGdxGame extends ApplicationAdapter implements GestureDetector.Ges
 
     @Override
     public void render() {
-        /*Gdx.gl.glClearColor(1, 1, 1, 1);
+        Gdx.gl.glClearColor(1, 1, 1, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
+        spriteBatch.setProjectionMatrix(camera.combined);
         spriteBatch.begin();
 
-        sprite.draw(spriteBatch);
+        /*sprite.draw(spriteBatch);
         bitmapFont.draw(spriteBatch, "Firebase!", 200, 100);
 
         timePassed += Gdx.graphics.getDeltaTime();
-        spriteBatch.draw((TextureRegion) animation.getKeyFrame(timePassed, true), 300, 500);
+        spriteBatch.draw((TextureRegion) animation.getKeyFrame(timePassed, true), 300, 500);*/
 
-        spriteBatch.end();*/
+        sprite.draw(spriteBatch);
+
+        spriteBatch.end();
     }
 
     @Override
@@ -54,6 +61,8 @@ public class MyGdxGame extends ApplicationAdapter implements GestureDetector.Ges
         /*bitmapFont.dispose();
         texture.dispose();
         textureAtlas.dispose();*/
+
+        texture.dispose();
     }
 
     /**
@@ -111,6 +120,8 @@ public class MyGdxGame extends ApplicationAdapter implements GestureDetector.Ges
      */
     @Override
     public boolean pan(float x, float y, float deltaX, float deltaY) {
+        camera.translate(-deltaX, deltaY);
+        camera.update();
         return false;
     }
 
@@ -172,5 +183,12 @@ public class MyGdxGame extends ApplicationAdapter implements GestureDetector.Ges
 
         textureAtlas = new TextureAtlas(Gdx.files.internal("walk.atlas"));
         animation = new Animation(1 / 3f, textureAtlas.getRegions());*/
+
+        camera = new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+        texture = new Texture("map.png");
+        sprite = new Sprite(texture);
+        sprite.setPosition(-sprite.getWidth() / 2, -sprite.getHeight() / 2);
+
+        Gdx.input.setInputProcessor(new GestureDetector(this));
     }
 }
