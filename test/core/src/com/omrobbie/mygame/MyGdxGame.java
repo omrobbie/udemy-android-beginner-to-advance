@@ -4,13 +4,17 @@ import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class MyGdxGame extends ApplicationAdapter {
 
     private SpriteBatch spriteBatch;
     private BitmapFont bitmapFont;
+    private Texture texture;
+    private Sprite sprite;
 
     @Override
     public void create() {
@@ -23,7 +27,8 @@ public class MyGdxGame extends ApplicationAdapter {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         spriteBatch.begin();
-        bitmapFont.draw(spriteBatch, "Hello World!", 100, 400);
+        sprite.draw(spriteBatch);
+        bitmapFont.draw(spriteBatch, "Firebase!", 200, 100);
         spriteBatch.end();
     }
 
@@ -31,11 +36,16 @@ public class MyGdxGame extends ApplicationAdapter {
     public void dispose() {
         spriteBatch.dispose();
         bitmapFont.dispose();
+        texture.dispose();
     }
 
     private void setupEnv() {
         spriteBatch = new SpriteBatch();
         bitmapFont = new BitmapFont();
-        bitmapFont.setColor(Color.BLUE);
+        bitmapFont.setColor(Color.ORANGE);
+        bitmapFont.getData().setScale(5, 5);
+
+        texture = new Texture("firebase.png");
+        sprite = new Sprite(texture);
     }
 }
