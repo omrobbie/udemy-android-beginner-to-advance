@@ -1,7 +1,9 @@
 package com.omrobbie.mystopwatch;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.os.Handler;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -18,6 +20,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         timeView = (TextView) findViewById(R.id.timeView);
+
+        final Handler handler = new Handler();
+        handler.post(new Runnable() {
+            @Override
+            public void run() {
+                runTimer();
+                handler.postDelayed(this, 1000);
+            }
+        });
     }
 
     public void onClickStart(View view) {
@@ -34,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void runTimer() {
+        Log.i("xxx", "runTimer: " + seconds);
         int hours = seconds / 3600;
         int minutes = (seconds % 3600) / 60;
         int secs = seconds % 60;
