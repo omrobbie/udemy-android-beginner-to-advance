@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">CofeeBuzz</string>
+    <string-array name="options">
+        <item>Drinks</item>
+        <item>Food</item>
+        <item>Other</item>
+    </string-array>
 </resources>
