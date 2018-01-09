@@ -24,6 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
+        android:onClick="onClickStart"
         android:text="Start" />
 
     <Button
@@ -34,6 +35,7 @@
         android:layout_alignStart="@+id/buttonStart"
         android:layout_below="@+id/buttonStart"
         android:layout_marginTop="20dp"
+        android:onClick="onClickStop"
         android:text="Stop" />
 
     <Button
@@ -44,5 +46,6 @@
         android:layout_alignParentBottom="true"
         android:layout_alignRight="@+id/buttonStop"
         android:layout_marginBottom="36dp"
+        android:onClick="onClickReset"
         android:text="Reset" />
 </RelativeLayout>
