@@ -29,6 +29,18 @@ public class MainActivity extends AppCompatActivity {
                 handler.postDelayed(this, 1000);
             }
         });
+
+        if (savedInstanceState != null) {
+            seconds = savedInstanceState.getInt("seconds");
+            running = savedInstanceState.getBoolean("running");
+        }
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        outState.putInt("seconds", seconds);
+        outState.putBoolean("running", running);
+        super.onSaveInstanceState(outState);
     }
 
     public void onClickStart(View view) {
