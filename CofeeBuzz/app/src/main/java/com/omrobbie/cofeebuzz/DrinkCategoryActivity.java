@@ -1,8 +1,10 @@
 package com.omrobbie.cofeebuzz;
 
 import android.app.ListActivity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -23,5 +25,12 @@ public class DrinkCategoryActivity extends ListActivity {
                 Drinks.drinks
         );
         listDrinks.setAdapter(listAdapter);
+    }
+
+    @Override
+    protected void onListItemClick(ListView l, View v, int position, long id) {
+        Intent intent  = new Intent(DrinkCategoryActivity.this, DrinkActivity.class);
+        intent.putExtra(DrinkActivity.EXTRA_DRINK_NO, (int) id);
+        startActivity(intent);
     }
 }
