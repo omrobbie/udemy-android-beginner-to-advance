@@ -6,8 +6,9 @@ package com.omrobbie.cofeebuzz;
 
 public class Drinks {
 
-    public static final Drinks[] drinsk = {
-            new Drinks("Latte", "This ini a description for latte", R.drawable.coffee)
+    public static final Drinks[] drinks = {
+            new Drinks("Latte", "This ini a description for latte", R.drawable.coffee),
+            new Drinks("Milk", "This ini a description for milk", R.drawable.coffee)
     };
 
     private String name;
