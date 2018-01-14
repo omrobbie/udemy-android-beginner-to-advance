@@ -6,4 +6,16 @@
         android:orderInCategory="100"
         android:title="@string/action_settings"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/action_home_delivery"
+        android:icon="@drawable/ic_home"
+        android:orderInCategory="101"
+        android:title="Home Delivery"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/action_order"
+        android:icon="@mipmap/ic_launcher_round"
+        android:orderInCategory="101"
+        android:title="Order"
+        app:showAsAction="always" />
 </menu>

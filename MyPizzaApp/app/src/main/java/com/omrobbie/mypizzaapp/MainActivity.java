@@ -1,10 +1,10 @@
 package com.omrobbie.mypizzaapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.Snackbar;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -12,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -64,11 +65,20 @@ public class MainActivity extends AppCompatActivity
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        switch (item.getItemId()) {
+            case R.id.action_settings:
+                break;
+
+            case R.id.action_order:
+                Intent intent = new Intent(this, OrderActivity.class);
+                startActivity(intent);
+                break;
+
+            case R.id.action_home_delivery:
+                Intent intent1 =new Intent(this, HomeDeliveryActivity.class);
+                startActivity(intent1);
+                break;
         }
 
         return super.onOptionsItemSelected(item);
@@ -80,17 +90,17 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
+        if (id == R.id.nav_order) {
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.nav_view_menu) {
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.nav_todays_offers) {
 
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.nav_extras) {
 
-        } else if (id == R.id.nav_share) {
+        } else if (id == R.id.nav_contact_us) {
 
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.nav_rate_us) {
 
         }
 
