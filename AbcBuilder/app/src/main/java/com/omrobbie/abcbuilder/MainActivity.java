@@ -1,5 +1,6 @@
 package com.omrobbie.abcbuilder;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -22,8 +23,9 @@ public class MainActivity extends AppCompatActivity {
         String oEmail = "admin";
         String oPass = "admin";
 
-        if (email.equals(oEmail) && password.equals(oPass)) {
-
+        if (email.getText().toString().equals(oEmail) && password.getText().toString().equals(oPass)) {
+            Intent intent = new Intent(this, NavigationActivity.class);
+            startActivity(intent);
         } else {
             Toast.makeText(this, "Invalid email or password!", Toast.LENGTH_SHORT).show();
         }
