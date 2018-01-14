@@ -1,5 +1,6 @@
 package com.omrobbie.abcbuilder;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -12,9 +13,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 
 public class NavigationActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    private Button view_gallery, our_location, testimonial, contact_us;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +26,8 @@ public class NavigationActivity extends AppCompatActivity
         setContentView(R.layout.activity_navigation);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        setupEnv();
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -81,12 +87,16 @@ public class NavigationActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_view_gallery) {
-            // Handle the camera action
+            Intent intent = new Intent(this, GalleryActivity.class);
+            startActivity(intent);
         } else if (id == R.id.nav_our_location) {
 
         } else if (id == R.id.nav_contact_us) {
-
+            Intent intent = new Intent(this, ContactUsActivity.class);
+            startActivity(intent);
         } else if (id == R.id.nav_testimonial) {
+            Intent intent = new Intent(this, TestimonialActivity.class);
+            startActivity(intent);
 
         } else if (id == R.id.nav_share) {
 
@@ -97,5 +107,12 @@ public class NavigationActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private void setupEnv() {
+        view_gallery = (Button) findViewById(R.id.button);
+        our_location = (Button) findViewById(R.id.button2);
+        testimonial = (Button) findViewById(R.id.nav_testimonial);
+        contact_us = (Button) findViewById(R.id.button4);
     }
 }

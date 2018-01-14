@@ -19,6 +19,15 @@
         <activity
             android:name=".NavigationActivity"
             android:label="@string/title_activity_navigation"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".GalleryActivity"
+            android:label="@string/title_activity_gallery"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".ContactUsActivity" />
+        <activity
+            android:name=".TestimonialActivity"
+            android:label="@string/title_activity_testimonial"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
