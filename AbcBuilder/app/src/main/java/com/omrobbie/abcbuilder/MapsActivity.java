@@ -1,7 +1,7 @@
 package com.omrobbie.abcbuilder;
 
-import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -42,5 +42,19 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         LatLng property1 = new LatLng(-8.655966, 115.234964);
         mMap.addMarker(new MarkerOptions().position(property1).title("Property One"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(property1));
+
+        LatLng property2 = new LatLng(-8.672935, 115.230927);
+        mMap.addMarker(new MarkerOptions().position(property2).title("Property Two"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(property2));
+
+        LatLng property3 = new LatLng(-8.675863, 115.213342);
+        mMap.addMarker(new MarkerOptions().position(property3).title("Property Three"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(property3));
+
+        LatLng property4 = new LatLng(-8.638708, 115.216317);
+        mMap.addMarker(new MarkerOptions().position(property4).title("Property Four"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(property4));
+
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(property3, 13.0f));
     }
 }
