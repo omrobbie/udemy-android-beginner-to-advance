@@ -19,23 +19,27 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="buttonGallery"
         android:text="View Gallery" />
 
     <Button
         android:id="@+id/button2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="buttonLocation"
         android:text="Our Location" />
 
     <Button
         android:id="@+id/button3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="buttonTestimonial"
         android:text="Testimonials" />
 
     <Button
         android:id="@+id/button4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="buttonContacts"
         android:text="Contact Us" />
 </LinearLayout>

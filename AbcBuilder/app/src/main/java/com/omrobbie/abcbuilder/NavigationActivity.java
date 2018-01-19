@@ -116,4 +116,24 @@ public class NavigationActivity extends AppCompatActivity
         testimonial = (Button) findViewById(R.id.nav_testimonial);
         contact_us = (Button) findViewById(R.id.button4);
     }
+
+    public void buttonGallery(View view) {
+        Intent intent = new Intent(this, GalleryActivity.class);
+        startActivity(intent);
+    }
+
+    public void buttonLocation(View view) {
+        Intent intent = new Intent(this, MapsActivity.class);
+        startActivity(intent);
+    }
+
+    public void buttonTestimonial(View view) {
+        Intent intent = new Intent(this, TestimonialActivity.class);
+        startActivity(intent);
+    }
+
+    public void buttonContacts(View view) {
+        Intent intent = new Intent(this, ContactUsActivity.class);
+        startActivity(intent);
+    }
 }
