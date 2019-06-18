@@ -31,14 +31,18 @@ public class Main2Activity extends AppCompatActivity {
         bmi = height * height;
         bmi = weight / bmi;
         tv1.setText(String.valueOf(bmi));
-
+        
+while (bmi>0){
         if (bmi < 18.5) {
             msg = "Underweight";
         } else if (bmi > 18.5 && bmi < 25) {
             msg = "Normal";
-        } else if (bmi > 25) {
+        } else if (bmi > 25 && bmi< 30) {
             msg = "Overweight";
+        } else if (bmi>30){
+            msg ="Obese"
         }
+        )
 
         tv2.setText(msg);
     }
